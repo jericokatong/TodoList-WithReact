@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const TodoListCreate = (props) => {
   const [getInputTodos, setInputTodos] = useState("");
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -25,7 +26,7 @@ const TodoListCreate = (props) => {
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
       <input type="text" value={getInputTodos} onChange={handleInput} />
-      <button type="submit">Add</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };
