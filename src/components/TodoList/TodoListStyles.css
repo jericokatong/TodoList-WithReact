@@ -8,6 +8,15 @@ ul > li {
   display: flex;
 }
 
+.todoContent {
+  width: 100%;
+  display: flex;
+}
+
+.lenyap {
+  display: none;
+}
+
 .content {
   flex: 3;
   text-align: left;

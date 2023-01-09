@@ -11,11 +11,10 @@ const Todo = () => {
     // setTodos(getTodos.concat(todo));
 
     // cara pakai spread syntax
-    console.log(setTodos([...getTodos, todo]));
+    setTodos([...getTodos, todo]);
   };
 
   const handleDelete = (e) => {
-    console.log(e);
     setTodos(
       getTodos.filter((elemen, i) => {
         if (i != e) {
@@ -25,12 +24,33 @@ const Todo = () => {
     );
   };
 
+  // console.log(getTodos[0].title);
+  const handleEdit = (isiTitle, index) => {
+    const newTodo = {
+      id: Math.floor(Math.random() * 100) + 1,
+      title: isiTitle,
+    };
+
+    getTodos.map((e, i) => {
+      if (i == index) {
+        return getTodos.splice(index, 1, newTodo);
+      }
+    });
+
+    setTodos([...getTodos]);
+
+    // const cobaAjeh = getTodos.splice(index, 1, newTodoEdit);
+
+    // setTodos([...getTodos, newTodoEdit]);
+    console.log("ini handle edit");
+    console.log(getTodos);
+  };
+
   return (
     <div>
       <h3>Todo List</h3>
-      {JSON.stringify(getTodos)}
-      <TodoListCreate onCreateTodo={eventCreateTodo} />
-      <TodoList dataTodos={getTodos} eventDeleteTodo={handleDelete} />
+      <TodoListCreate onCreateTodo={eventCreateTodo} dataTodos={getTodos} />
+      <TodoList dataTodos={getTodos} eventDeleteTodo={handleDelete} eventEditTodo={handleEdit} />
     </div>
   );
 };

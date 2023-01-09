@@ -19,8 +19,6 @@ const TodoListCreate = (props) => {
 
   const handleInput = (event) => {
     setInputTodos(event.target.value);
-
-    console.log(getInputTodos);
   };
 
   return (
